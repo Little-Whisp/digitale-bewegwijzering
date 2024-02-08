@@ -1,0 +1,21 @@
+.weather-container {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .weather-info {
+    text-align: center;
+  }
+  
+  .weather-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .weather-description p {
+    margin-right: 10px;
+  }
+  
