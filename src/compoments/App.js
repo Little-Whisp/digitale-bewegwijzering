@@ -1,30 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Routes
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Weather from './Weather/Weather';
 import News from './News';
-import './styles/App.css';
 import Pubs from './Pubs';
+import './styles/App.css';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Weer</Link>
+      <div className="App">
+        <nav className="navbar">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/" className="circle-link"></Link>
             </li>
-            <li>
-              <Link to="/news">Nieuws</Link>
+            <li className="nav-item">
+              <Link to="/news" className="circle-link"></Link>
             </li>
-            <li>
-              <Link to="/pubs">Kroegen</Link>
+            <li className="nav-item">
+              <Link to="/pubs" className="circle-link"></Link>
             </li>
+
           </ul>
         </nav>
 
-        <Routes> {/* Wrap Routes around Route components */}
-          <Route path="/" element={<Weather />} /> {/* Use element prop */}
+        <Routes>
+          <Route path="/" element={<Weather />} />
           <Route path="/news" element={<News />} />
           <Route path="/pubs" element={<Pubs />} />
         </Routes>

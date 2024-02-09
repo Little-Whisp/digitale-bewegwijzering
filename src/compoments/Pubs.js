@@ -1,32 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import './styles/Pubs.css';
 
 const Pubs = () => {
-  const [nearbyPubs, setNearbyPubs] = useState(null);
-
-  useEffect(() => {
-    axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=51.5872,4.7741&radius=500&type=bar&key=YOUR_GOOGLE_PLACES_API_KEY`)
-      .then(response => {
-        setNearbyPubs(response.data.results.slice(0, 5));
-      })
-      .catch(error => {
-        console.error('Fout bij het ophalen van kroegen:', error);
-      });
-  }, []);
+  const nearbyPubs = [
+    {
+      name: "Dok 19",
+      opening_hours: ["Vrijdag: 10:00 uur - 02:00 uur"]
+    },
+    {
+      name: "Mad Molly's Irish Pub",
+      opening_hours: ["Vrijdag: 15:00 uur - 02:00 uur"]
+    },
+    {
+      name: "Irish pub & kitchen Ned Kelly's",
+      opening_hours: ["Vrijdag: 15:00 uur - 02:00 uur"]
+    },
+    {
+      name: "Shots",
+      opening_hours: ["Vrijdag: 21:00 uur - 04:00 uur"]
+    },
+    {
+      name: "Café Bruxelles",
+      opening_hours: ["Vrijdag: 12:00 uur - 04:00 uur"]
+    }
+  ];
 
   return (
     <div>
-      <h2>Kroegen in de buurt van Adriaan van Bergenstraat 206, Breda</h2>
-      {nearbyPubs && (
+      <div className="blue-section">
+        <h2>Na een lange dag verdien je wel een biertje </h2>
+      <div className="pubs-container">
         <ul>
           {nearbyPubs.map((pub, index) => (
             <li key={index}>
-              <p>{pub.name}</p>
-              <p>Openingstijden: {pub.opening_hours ? pub.opening_hours.weekday_text[4] : 'Onbekend'}</p>
+              <h4>{pub.name}</h4>
+              <p>{pub.opening_hours.slice(0, 5).join(', ')}</p>
             </li>
           ))}
         </ul>
-      )}
+        </div>
+      </div>
     </div>
   );
 };

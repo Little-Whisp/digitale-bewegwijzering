@@ -1,34 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './styles/News.css'; // Import your CSS file for styling
 
-const News = () => {
-  const [news, setNews] = useState(null);
+function News() {
+  const [techNews, setTechNews] = useState([]);
+  const [designNews, setDesignNews] = useState([]);
 
   useEffect(() => {
-    axios.get('https://newsapi.org/v2/top-headlines?country=nl&category=technology&apiKey=53568428707b46d7b49511bc725f95a8')
-      .then(response => {
-        setNews(response.data.articles.slice(0, 3));
-      })
-      .catch(error => {
-        console.error('Fout bij het ophalen van nieuws:', error);
-      });
+    const fetchNews = async () => {
+      try {
+        const techResponse = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=53568428707b46d7b49511bc725f95a8');
+        const designResponse = await axios.get('https://newsapi.org/v2/everything?q=apple&from=2024-02-07&to=2024-02-07&sortBy=popularity&apiKey=53568428707b46d7b49511bc725f95a8');
+        setTechNews(techResponse.data.articles.slice(0, 2)); // Assuming the API returns an array of articles
+        setDesignNews(designResponse.data.articles.slice(0, 2)); // Assuming the API returns an array of articles
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    };
+
+    fetchNews();
   }, []);
 
   return (
-    <div>
-      <h2>Technologie Nieuws</h2>
-      {news && (
-        <ul>
-          {news.map((article, index) => (
-            <li key={index}>
-              <img src={article.urlToImage} alt="Thumbnail" />
-              <a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a>
-            </li>
+    <div className="news-container">
+      <div className="spacer"></div> {/* Spacer for spacing between navbar and news */}
+      <div className="container">
+        <div className="news-grid">
+          {techNews.map((news, index) => (
+            <div key={index} className="news-card tech-news">
+              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage})`}}>
+                <div className="news-overlay">
+                  <h3>{news.title}</h3>
+                  <p>{news.description}</p>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
-      )}
+        </div>
+        <div className="news-grid">
+          {designNews.map((news, index) => (
+            <div key={index} className="news-card design-news">
+              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage})`}}>
+                <div className="news-overlay">
+                  <h3>{news.title}</h3>
+                  <p>{news.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default News;
