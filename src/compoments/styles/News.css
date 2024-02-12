@@ -1,47 +1,128 @@
-/* News.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
-.news-container {
-    padding-top: 20px;
-    /* Adjust spacing between navbar and news */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.spacer {
-    height: 20px;
-    /* Height of the spacer */
+body {
+    font-family: Poppins, Arial, sans-serif !important;
+    padding: 0 2em;
+    margin: 0; /* Add this line to remove default margin */
 }
 
-.container {
+.title {
+    text-align: center;
+    margin: 2em 0;
+    font-size: 4em;
+}
+
+.menu {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
+.menu li {
+    display: inline-block;
+    margin: 1em;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    background: #eee;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.news-container {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .news-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    max-width: 1100px;
+    margin: 2em auto;
 }
 
 .news-card {
-    position: relative;
+    flex: 1;
+    max-width: 400px; /* Adjust max-width as needed */
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
-.tech-news {
-    background-color: #f0f0f0;
-    /* Light gray background for tech news */
-}
-
-.design-news {
-    background-color: #e0e0e0;
-    /* Lighter gray background for design news */
+.news-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
 }
 
 .news-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    /* Add space between image and title */
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-size: cover; /* Adjust the size of the background image */
+}
+
+
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.news-overlay {
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity as needed */
+    padding: 1em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.see-more {
+    color: #fff; /* White color for the "See More" link */
+}
+
+.news-overlay h3 {
+    margin-bottom: 0.5em;
+    color: #eee;
+}
+
+.news-overlay p {
+    margin-bottom: 1.5em; /* Add spacing between text and "See More" button */
+}
+
+
+@media screen and (max-width: 1330px){
+    html{
+        font-size: 14px;
+    }
+    .news-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .news-grid{
+        grid-template-columns: 1fr;
+    }
 }

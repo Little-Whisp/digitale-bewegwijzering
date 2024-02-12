@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './styles/News.css'; // Import your CSS file for styling
+import '../styles/News.css';
 
 function News() {
   const [techNews, setTechNews] = useState([]);
@@ -32,6 +32,7 @@ function News() {
                 <div className="news-overlay">
                   <h3>{news.title}</h3>
                   <p>{news.description}</p>
+                  <a href={news.url} target="_blank" rel="noopener noreferrer" className="see-more">See More</a>
                 </div>
               </div>
             </div>
@@ -44,6 +45,7 @@ function News() {
                 <div className="news-overlay">
                   <h3>{news.title}</h3>
                   <p>{news.description}</p>
+                  <a href={news.url} target="_blank" rel="noopener noreferrer" className="see-more">See More</a>
                 </div>
               </div>
             </div>

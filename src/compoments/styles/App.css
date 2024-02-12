@@ -9,8 +9,9 @@
   border-radius: 50px;
   padding: 10px;
   max-width: 200px; /* Adjust width as needed */
-  margin: 0 auto; /* Center horizontally */
+  margin: 20px auto 0; /* Center horizontally and add 20px margin from the top */
 }
+
 
 
 .nav-list {

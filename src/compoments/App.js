@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Weather from './Weather/Weather';
-import News from './News';
+import News from './News/News';
 import Pubs from './Pubs';
 import './styles/App.css';
 
