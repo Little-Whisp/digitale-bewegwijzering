@@ -38,8 +38,8 @@ function Weather() {
           return;
         }
     
-        const currentDate = transformDateFormat(); // Assuming this function returns today's date in the correct format
-        const dt_now = Math.floor(new Date().getTime() / 1000); // Current Unix timestamp
+        const currentDate = transformDateFormat(); 
+        const dt_now = Math.floor(new Date().getTime() / 1000);
   
         // Process forecast data for today and the week
         const all_today_forecasts_list = getTodayForecastWeather(forecastResponse, currentDate, dt_now);
@@ -175,7 +175,7 @@ function Weather() {
         }}
       >
         {appContent}
-        <UTCDatetime />
+        <UTCDatetime/>
       </Box>
     </Container>
   );

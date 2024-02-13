@@ -4,7 +4,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(80deg,#000000,#202d68);
+  background: linear-gradient(80deg,#05101d,#25326d);
   font-family: Poppins,Arial,sans-serif!important;
   margin: 0;
   min-height: 100vh;

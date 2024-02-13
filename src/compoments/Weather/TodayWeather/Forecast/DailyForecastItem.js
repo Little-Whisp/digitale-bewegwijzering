@@ -36,6 +36,8 @@ const DailyForecastItem = (props) => {
           alignItems: 'center',
           color: 'white',
           padding: '4px',
+          marginTop: 'auto', // Adjust marginTop to reduce space
+          marginBottom: '-40px', // Adjust marginBottom to reduce space
         }}
       >
         <Box
@@ -43,16 +45,13 @@ const DailyForecastItem = (props) => {
           sx={{
             width: { xs: '36px', sm: '42px' },
             height: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            alignSelf: 'center',
-            margin: '0 auto',
+            margin: '0 auto', // Center the cloud icon horizontally
           }}
           alt="weather"
           src={weatherIcon(`${props.data.weather[0].icon}.png`)}
         />
       </Box>
+
       <Typography
         variant="h3"
         component="h3"

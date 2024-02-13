@@ -28,7 +28,7 @@ const Pubs = () => {
   return (
     <div>
       <div className="blue-section">
-        <h2>Na een lange dag verdien je wel een biertje </h2>
+        <h2>Na een lange week verdien je wel een biertje </h2>
         <br></br>
         <div className="pub-details">
           <div className="pub-info">

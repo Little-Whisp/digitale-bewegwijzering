@@ -20,19 +20,24 @@ const App = () => {
 const AppContent = () => {
   const routes = ['/', '/news', '/pubs'];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoNavigation, setIsAutoNavigation] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex(currentIndex => (currentIndex + 1) % routes.length);
+      setIsAutoNavigation(true); // Set auto navigation flag to true
     }, 20000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
-    navigate(routes[currentIndex]);
-  }, [currentIndex, navigate]);
+    if (isAutoNavigation) {
+      navigate(routes[currentIndex]);
+      setIsAutoNavigation(false); // Reset auto navigation flag
+    }
+  }, [currentIndex, isAutoNavigation, navigate]);
 
   return (
     <div>
