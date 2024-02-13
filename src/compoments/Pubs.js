@@ -29,15 +29,21 @@ const Pubs = () => {
     <div>
       <div className="blue-section">
         <h2>Na een lange dag verdien je wel een biertje </h2>
-      <div className="pubs-container">
-        <ul>
-          {nearbyPubs.map((pub, index) => (
-            <li key={index}>
-              <h4>{pub.name}</h4>
-              <p>{pub.opening_hours.slice(0, 5).join(', ')}</p>
-            </li>
-          ))}
-        </ul>
+        <br></br>
+        <div className="pub-details">
+          <div className="pub-info">
+            <div className="pubs-container">
+              <ul>
+                {nearbyPubs.map((pub, index) => (
+                  <li key={index}>
+                    <h4>{pub.name}</h4>
+                    <p>{pub.opening_hours.slice(0, 5).join(', ')}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <img src="/img/cartoon-beer-icon-png.webp" alt="Pub" className="pub-image" /> 
         </div>
       </div>
     </div>

@@ -42,3 +42,27 @@
   background-color: #1e90ff; /* Change color on hover */
 }
 
+.page {
+  position: relative;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 10s ease-in-out; /* Adjust the duration here */
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 10s ease-in-out; /* Adjust the duration here */
+}
+
+
+

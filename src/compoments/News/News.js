@@ -11,8 +11,8 @@ function News() {
       try {
         const techResponse = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=53568428707b46d7b49511bc725f95a8');
         const designResponse = await axios.get('https://newsapi.org/v2/everything?q=apple&from=2024-02-07&to=2024-02-07&sortBy=popularity&apiKey=53568428707b46d7b49511bc725f95a8');
-        setTechNews(techResponse.data.articles.slice(0, 2)); // Assuming the API returns an array of articles
-        setDesignNews(designResponse.data.articles.slice(0, 2)); // Assuming the API returns an array of articles
+        setTechNews(techResponse.data.articles.slice(0, 2)); 
+        setDesignNews(designResponse.data.articles.slice(0, 2)); 
       } catch (error) {
         console.error('Error fetching news:', error);
       }
@@ -21,14 +21,16 @@ function News() {
     fetchNews();
   }, []);
 
+  const placeholderImageUrl = '/img/vector.jpeg';
+
   return (
     <div className="news-container">
-      <div className="spacer"></div> {/* Spacer for spacing between navbar and news */}
+      <div className="spacer"></div>
       <div className="container">
         <div className="news-grid">
           {techNews.map((news, index) => (
             <div key={index} className="news-card tech-news">
-              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage})`}}>
+              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage || placeholderImageUrl})`}}>
                 <div className="news-overlay">
                   <h3>{news.title}</h3>
                   <p>{news.description}</p>
@@ -41,7 +43,7 @@ function News() {
         <div className="news-grid">
           {designNews.map((news, index) => (
             <div key={index} className="news-card design-news">
-              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage})`}}>
+              <div className="news-image" style={{backgroundImage: `url(${news.urlToImage || placeholderImageUrl})`}}>
                 <div className="news-overlay">
                   <h3>{news.title}</h3>
                   <p>{news.description}</p>
